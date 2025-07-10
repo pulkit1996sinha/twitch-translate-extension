@@ -1,0 +1,16 @@
+{
+  "manifest_version": 1,
+  "type": "panel",
+  "description": {
+    "en": "Real-time chat translator to English"
+  },
+  "author_name": "YourName",
+  "version": "1.0.0",
+  "assets": {
+    "viewer": {
+      "url": "https://your-frontend-url.vercel.app/viewer.html"
+    }
+  },
+  "permissions": [],
+  "panel_height": 400
+}
