@@ -13,16 +13,25 @@ app.post('/translate', async (req, res) => {
   try {
     const { text } = req.body;
 
-    const result = await fetch('https://translate.argosopentech.com/translate', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        q: text,
-        source: 'auto',
-        target: 'en',
-        format: 'text'
-      })
-    }).then(r => r.json());
+  const libreURL = 'https://translate.argosopentech.com/translate';
+
+const response = await fetch(libreURL, {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    q: text,
+    source: 'auto',
+    target: 'en',
+    format: 'text'
+  })
+});
+
+console.log("Status:", response.status);
+console.log("Headers:", [...response.headers.entries()]);
+
+const result = await response.json();
+console.log("Body:", result);
+
 
     console.log("LibreTranslate result:", result);
 
